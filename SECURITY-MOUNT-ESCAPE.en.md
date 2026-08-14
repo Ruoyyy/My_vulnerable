@@ -45,7 +45,9 @@ Run directly → Sandbox rejects.
 "echo PWNED > '$TARGET'"
 ```
 
-![image-20260814231115638](file://C:\Users\Z2621\AppData\Roaming\Typora\typora-user-images\image-20260814231115638.png?lastModify=1786720357)
+<img width="1140" height="489" alt="image" src="https://github.com/user-attachments/assets/23bffd14-26ec-434d-afb6-0b4894a3c382" />
+<img width="1239" height="147" alt="image" src="https://github.com/user-attachments/assets/d83d353b-8dfd-4909-ae1c-00c1221d42c5" />
+
 
 Full script (mechanism-level reproduction; run as root — non-root is blocked by `must be superuser`):
 
@@ -72,9 +74,13 @@ rm -f "$TARGET"; rmdir "$WS" 2>/dev/null
 
 Expected output (root): `[1]` → Read-only file system, `[2]` → success, `[result]` → PWNED. Non-root: `[2]` → must be superuser, `[result]` → ORIGINAL.
 
-![image-20260814231115638](file://C:\Users\Z2621\AppData\Roaming\Typora\typora-user-images\image-20260814231115638.png?lastModify=1786720371)
+<img width="1131" height="537" alt="image" src="https://github.com/user-attachments/assets/a1071c71-32e7-43f0-a809-f2410075adbd" />
 
-![image-20260814231135880](file://C:\Users\Z2621\AppData\Roaming\Typora\typora-user-images\image-20260814231135880.png?lastModify=1786720378)
+
+
+<img width="1239" height="147" alt="image" src="https://github.com/user-attachments/assets/6adbb412-3964-4206-a43e-d875821bb8a4" />
+
+
 
 Also confirmed as root: `mount --bind $WS /etc` and `mount -t tmpfs tmpfs /root` both exit 0.
 
